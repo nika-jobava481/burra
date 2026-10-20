@@ -1,0 +1,127 @@
+/* Card rendering - pure CSS, no images */
+
+.card {
+    width: 70px;
+    height: 100px;
+    border: 2px solid #555;
+    border-radius: 8px;
+    background: #fff;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4px 6px;
+    cursor: default;
+    user-select: none;
+    transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.card.selectable {
+    cursor: pointer;
+}
+
+.card.selectable:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+    border-color: #888;
+}
+
+.card.selected {
+    transform: translateY(-16px);
+    box-shadow: 0 6px 16px rgba(240, 192, 64, 0.5);
+    border-color: #f0c040;
+}
+
+.card-corner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
+}
+
+.card-corner .rank {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.card-corner .suit {
+    font-size: 12px;
+}
+
+.card-corner.bottom-right {
+    align-self: flex-end;
+    transform: rotate(180deg);
+}
+
+.card-center {
+    font-size: 28px;
+    text-align: center;
+    line-height: 1;
+}
+
+/* Card back */
+.card-back {
+    width: 70px;
+    height: 100px;
+    border: 2px solid #2a4a7f;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #1a3a6f 0%, #2a5aaf 50%, #1a3a6f 100%);
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.card-back::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+}
+
+.card-back::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+/* Mini card back (for opponents) */
+.card-back.mini {
+    width: 40px;
+    height: 56px;
+}
+
+.card-back.mini::before {
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border-width: 1px;
+}
+
+.card-back.mini::after {
+    width: 16px;
+    height: 16px;
+    border-width: 2px;
+}
+
+/* Suit colors */
+.card[data-suit="hearts"],
+.card[data-suit="diamonds"] {
+    color: #cc0000;
+}
+
+.card[data-suit="clubs"],
+.card[data-suit="spades"] {
+    color: #1a1a1a;
+}

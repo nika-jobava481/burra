@@ -1,0 +1,36 @@
+// Client -> Server message types
+const C2S = {
+    CREATE_ROOM: 'CREATE_ROOM',
+    JOIN_ROOM: 'JOIN_ROOM',
+    START_GAME: 'START_GAME',
+    PLAY_CARDS: 'PLAY_CARDS',
+    DECLARE: 'DECLARE',
+    REMATCH: 'REMATCH',
+};
+
+// Server -> Client message types
+const S2C = {
+    ROOM_CREATED: 'ROOM_CREATED',
+    ROOM_JOINED: 'ROOM_JOINED',
+    PLAYER_JOINED: 'PLAYER_JOINED',
+    PLAYER_LEFT: 'PLAYER_LEFT',
+    PLAYER_RECONNECTED: 'PLAYER_RECONNECTED',
+    GAME_START: 'GAME_START',
+    GAME_STATE: 'GAME_STATE',
+    TRICK_RESULT: 'TRICK_RESULT',
+    DECLARATION: 'DECLARATION',
+    ROUND_OVER: 'ROUND_OVER',
+    ERROR: 'ERROR',
+};
+
+// Game phases
+const PHASE = {
+    DEAL: 'DEAL',
+    LEAD: 'LEAD',
+    RESPOND: 'RESPOND',
+    EVALUATE: 'EVALUATE',
+    DRAW: 'DRAW',
+    ROUND_OVER: 'ROUND_OVER',
+};
+
+module.exports = { C2S, S2C, PHASE };
